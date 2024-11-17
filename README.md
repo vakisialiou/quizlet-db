@@ -13,7 +13,7 @@ docker compose down --remove-orphans
 ```
 
 ```shell
-docker exec -it api bash
+docker exec -it mysql bash
 ```
 
 ```shell
