@@ -7,9 +7,13 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./env:/app/.env
       - ./mysql:/var/lib/mysql
       - ./my.cnf:/etc/mysql/conf.d/my.cnf
+    environment:
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     healthcheck:
       test: [ "CMD", "mysqladmin" ,"ping", "-h", "127.0.0.1" ]
       timeout: 20s
